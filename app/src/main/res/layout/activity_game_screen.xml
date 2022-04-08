@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameScreen">
+
+    <TextView
+        android:id="@+id/currentPlayerName"
+        style="android:style/TextAppearance.DeviceDefault.Medium"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="2dp"
+        android:gravity="center"
+        android:text="Player 1's Turn"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="0.5" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/adders"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currentPlayerName"
+        app:layout_constraintVertical_weight="9">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/l3card1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:onClick="pickCard"
+                android:tag="31"
+                app:srcCompat="@drawable/c1002" />
+
+            <ImageView
+                android:id="@+id/l3card2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:onClick="pickCard"
+                android:tag="32"
+                app:srcCompat="@drawable/c1002" />
+
+            <ImageView
+                android:id="@+id/l3card3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:onClick="pickCard"
+                android:tag="33"
+                app:srcCompat="@drawable/c1002" />
+
+            <ImageView
+                android:id="@+id/l3card4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:onClick="pickCard"
+                android:tag="34"
+                app:srcCompat="@drawable/c1002" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/l2card1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:onClick="pickCard"
+                android:tag="21"
+                app:srcCompat="@drawable/c1001" />
+
+            <ImageView
+                android:id="@+id/l2card2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:onClick="pickCard"
+                android:tag="22"
+                app:srcCompat="@drawable/c1001" />
+
+            <ImageView
+                android:id="@+id/l2card3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:onClick="pickCard"
+                android:tag="23"
+                app:srcCompat="@drawable/c1001" />
+
+            <ImageView
+                android:id="@+id/l2card4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:onClick="pickCard"
+                android:tag="24"
+                app:srcCompat="@drawable/c1001" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/level1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/l1card1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:onClick="pickCard"
+                android:tag="11"
+                app:srcCompat="@drawable/c1000" />
+
+            <ImageView
+                android:id="@+id/l1card2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:onClick="pickCard"
+                android:tag="12"
+                app:srcCompat="@drawable/c1000" />
+
+            <ImageView
+                android:id="@+id/l1card3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:onClick="pickCard"
+                android:tag="13"
+                app:srcCompat="@drawable/c1000" />
+
+            <ImageView
+                android:id="@+id/l1card4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:onClick="pickCard"
+                android:tag="14"
+                app:srcCompat="@drawable/c1000" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/nobel1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/nobel" />
+
+            <ImageView
+                android:id="@+id/nobel2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/nobel" />
+
+            <ImageView
+                android:id="@+id/nobel3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/nobel" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/adders"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginLeft="57dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginRight="57dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+        app:layout_constraintVertical_weight="0.5">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/minus1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="minusToken"
+                app:srcCompat="@drawable/minus" />
+
+            <TextView
+                android:id="@+id/pinknumberadded"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/plus1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="plusToken"
+                app:srcCompat="@drawable/plus" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/minus2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="minusToken"
+                app:srcCompat="@drawable/minus" />
+
+            <TextView
+                android:id="@+id/bluenumberadded"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/plus2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="plusToken"
+                app:srcCompat="@drawable/plus" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/minus3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="minusToken"
+                app:srcCompat="@drawable/minus" />
+
+            <TextView
+                android:id="@+id/greennumberadded"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/plus3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="plusToken"
+                app:srcCompat="@drawable/plus" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/minus4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="minusToken"
+                app:srcCompat="@drawable/minus" />
+
+            <TextView
+                android:id="@+id/rednumberadded"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/plus4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="plusToken"
+                app:srcCompat="@drawable/plus" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/minus5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="minusToken"
+                app:srcCompat="@drawable/minus" />
+
+            <TextView
+                android:id="@+id/blacknumberadded"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/plus5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="plusToken"
+                app:srcCompat="@drawable/plus" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginLeft="57dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginRight="57dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/adders"
+        app:layout_constraintVertical_weight="1">
+
+        <ImageView
+            android:id="@+id/pinkTokenImage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/pinktoken4" />
+
+        <ImageView
+            android:id="@+id/blueTokenImage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bluetoken4" />
+
+        <ImageView
+            android:id="@+id/greenTokenImage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/greentoken4" />
+
+        <ImageView
+            android:id="@+id/redTokenImage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/redtoken4" />
+
+        <ImageView
+            android:id="@+id/blackTokenImage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/blacktoken4" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="done"
+        app:layout_constraintBottom_toBottomOf="@id/adders"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/adders"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/done" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+        app:layout_constraintVertical_weight="1.5">
+
+        <TableRow
+            android:id="@+id/cardNumber"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Cards"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/pinkcards"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/bluecards"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/greencards"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                android:textSize="26sp"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+
+            <TextView
+                android:id="@+id/redcards"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                android:textSize="26sp"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+
+            <TextView
+                android:id="@+id/blackcards"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                android:textSize="26sp"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+
+            <TextView
+                android:id="@+id/whichplayer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Score"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"
+                android:textSize="12sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tokenNumber"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Tokens"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/pinktokens"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                android:textSize="26sp"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+
+            <TextView
+                android:id="@+id/bluetokens"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                android:textSize="26sp"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+
+            <TextView
+                android:id="@+id/greentokens"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                android:textSize="26sp"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+
+            <TextView
+                android:id="@+id/redtokens"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                android:textSize="26sp"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+
+            <TextView
+                android:id="@+id/blacktokens"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                android:textSize="26sp"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+
+            <TextView
+                android:id="@+id/victorypoints"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0"
+                android:textSize="24sp"
+                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayoutforplayershowtable"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toStartOf="@id/adders"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+
+        <TextView
+            android:id="@+id/player4showtable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="showInfo"
+            android:gravity="center"
+            android:text="Player 4"
+            android:textSize="12sp"
+            style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+
+        <TextView
+            android:id="@+id/player3showtable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="showInfo"
+            android:gravity="center"
+            android:text="Player 3"
+            android:textSize="12sp"
+            style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+
+        <TextView
+            android:id="@+id/player2showtable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="showInfo"
+            android:gravity="center"
+            android:text="Player 2"
+            android:textSize="12sp"
+            style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+
+        <TextView
+            android:id="@+id/player1showtable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="showInfo"
+            android:text="Player 1"
+            android:textSize="12sp"
+            style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/musicON"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:onClick="music"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/currentPlayerName"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/musicon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
