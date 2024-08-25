@@ -2,6 +2,7 @@ package com.deepakagarwal.splendor;
 
 import static com.deepakagarwal.splendor.AskNumberOfPlayers.game;
 import static com.deepakagarwal.splendor.MainActivity.ringBackground;
+import static com.deepakagarwal.splendor.utils.Utils.startMediaPlayer;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -186,18 +187,14 @@ public class GameScreen extends AppCompatActivity {
         whichplayer.setText(game.playerName[0]+" Score");
         currentPlayerName.setText(game.playerName[0]+"'s Turn");
 
-        ringBackground.start();
-        ringBackground.setLooping(true);
-        ringBackground.setVolume(100,100);
+        startMediaPlayer(ringBackground);
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        ringBackground.start();
-        ringBackground.setLooping(true);
-        ringBackground.setVolume(100,100);
+        startMediaPlayer(ringBackground);
     }
 
     public void pickCard(View view){

@@ -2,6 +2,7 @@ package com.deepakagarwal.splendor;
 
 import static com.deepakagarwal.splendor.AskNumberOfPlayers.game;
 import static com.deepakagarwal.splendor.MainActivity.ringBackground;
+import static com.deepakagarwal.splendor.utils.Utils.startMediaPlayer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,9 +47,7 @@ public class WinnerPage extends AppCompatActivity {
             cards.addView(cardsText);
         }
 
-        ringBackground.start();
-        ringBackground.setLooping(true);
-        ringBackground.setVolume(100,100);
+        startMediaPlayer(ringBackground);
     }
 
     public String getWinner(){
@@ -87,9 +86,7 @@ public class WinnerPage extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        ringBackground.start();
-        ringBackground.setLooping(true);
-        ringBackground.setVolume(100,100);
+        startMediaPlayer(ringBackground);
     }
 
     public void backToGame(View view){

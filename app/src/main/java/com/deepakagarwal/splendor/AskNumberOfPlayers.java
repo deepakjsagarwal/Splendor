@@ -1,6 +1,7 @@
 package com.deepakagarwal.splendor;
 
 import static com.deepakagarwal.splendor.MainActivity.ringBackground;
+import static com.deepakagarwal.splendor.utils.Utils.startMediaPlayer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,17 +33,13 @@ public class AskNumberOfPlayers extends AppCompatActivity {
         player[2] = (TextView)findViewById(R.id.player3);
         player[3] = (TextView)findViewById(R.id.player4);
 
-        ringBackground.start();
-        ringBackground.setLooping(true);
-        ringBackground.setVolume(100,100);
+        startMediaPlayer(ringBackground);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        ringBackground.start();
-        ringBackground.setLooping(true);
-        ringBackground.setVolume(100,100);
+        startMediaPlayer(ringBackground);
     }
 
     public void save(View view){

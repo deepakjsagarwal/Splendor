@@ -1,5 +1,7 @@
 package com.deepakagarwal.splendor;
 
+import static com.deepakagarwal.splendor.utils.Utils.startMediaPlayer;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,17 +16,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ringBackground = MediaPlayer.create(MainActivity.this,R.raw.backgroundmusic);
-        ringBackground.start();
-        ringBackground.setLooping(true);
-        ringBackground.setVolume(100,100);
+        startMediaPlayer(ringBackground);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        ringBackground.start();
-        ringBackground.setLooping(true);
-        ringBackground.setVolume(100,100);
+        startMediaPlayer(ringBackground);
     }
 
     public void playNewGame(View view){
