@@ -11,12 +11,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.deepakagarwal.splendor.models.Game;
+
 public class AskNumberOfPlayers extends AppCompatActivity {
 
     public static Game game;
     int i;
     TextView[] player;
     TextView[] names;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +47,10 @@ public class AskNumberOfPlayers extends AppCompatActivity {
 
     public void save(View view){
         if(checkName()) {
-            game = new Game();
-            game.numOfPlayers = i + 1;
-            game.playerName = new String[game.numOfPlayers];
+            game = new Game(i+1);
+            game.playerNames = new String[game.numOfPlayers];
             for (int x = 0; x <= i; x++)
-                game.playerName[x] = names[x].getText().toString();
+                game.playerNames[x] = names[x].getText().toString();
             Intent intent = new Intent(this, GameScreen.class);
             startActivity(intent);
         }
@@ -72,7 +74,7 @@ public class AskNumberOfPlayers extends AppCompatActivity {
     }
     public boolean checkName(){
         for (int x = 0; x <= i; x++){
-            if(names[x].getText().toString().equals("")) return false;
+            if(names[x].getText().toString().trim().isEmpty()) return false;
         }
         return true;
     }

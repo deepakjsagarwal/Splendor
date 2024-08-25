@@ -14,8 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.deepakagarwal.splendor.cardsParameters.cardsParams;
-import com.deepakagarwal.splendor.cardsParameters.gameDeck;
+import com.deepakagarwal.splendor.models.Card;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,12 +25,12 @@ public class GameScreen extends AppCompatActivity {
     ImageView l21card,l22card,l23card,l24card;
     ImageView l31card,l32card,l33card,l34card;
     ImageView nobel1,nobel2,nobel3;
-    gameDeck deck;
+
     TextView pinkNumberAdded,blueNumberAdded,blackNumberAdded,greenNumberAdded,redNumberAdded;
     ImageView pinkTokenImage,blueTokenImage,blackTokenImage,greenTokenImage,redTokenImage;
     TextView pinkCards,blueCards,blackCards,greenCards,redCards,score;
     TextView pinkTokens,blueTokens,blackTokens,greenTokens,redTokens;
-    cardsParams[][] card;
+    Card[][] card;
     Map<String, ImageView> mapImageView;
     Map<String,TextView> mapTextView;
     TextView currentPlayerName;
@@ -48,146 +47,156 @@ public class GameScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
 
-        currentPlayerName = (TextView)findViewById(R.id.currentPlayerName);
-        l11card = (ImageView)findViewById(R.id.l1card1);
-        l12card = (ImageView)findViewById(R.id.l1card2);
-        l13card = (ImageView)findViewById(R.id.l1card3);
-        l14card = (ImageView)findViewById(R.id.l1card4);
-        l21card = (ImageView)findViewById(R.id.l2card1);
-        l22card = (ImageView)findViewById(R.id.l2card2);
-        l23card = (ImageView)findViewById(R.id.l2card3);
-        l24card = (ImageView)findViewById(R.id.l2card4);
-        l31card = (ImageView)findViewById(R.id.l3card1);
-        l32card = (ImageView)findViewById(R.id.l3card2);
-        l33card = (ImageView)findViewById(R.id.l3card3);
-        l34card = (ImageView)findViewById(R.id.l3card4);
-        nobel1 = (ImageView)findViewById(R.id.nobel1);
-        nobel2 = (ImageView)findViewById(R.id.nobel2);
-        nobel3 = (ImageView)findViewById(R.id.nobel3);
+        try {
 
-        mapImageView = new HashMap<String,ImageView>();
-        mapImageView.put("l11card",l11card);
-        mapImageView.put("l12card",l12card);
-        mapImageView.put("l13card",l13card);
-        mapImageView.put("l14card",l14card);
-        mapImageView.put("l21card",l21card);
-        mapImageView.put("l22card",l22card);
-        mapImageView.put("l23card",l23card);
-        mapImageView.put("l24card",l24card);
-        mapImageView.put("l31card",l31card);
-        mapImageView.put("l32card",l32card);
-        mapImageView.put("l33card",l33card);
-        mapImageView.put("l34card",l34card);
-        mapImageView.put("nobel1",nobel1);
-        mapImageView.put("nobel2",nobel2);
-        mapImageView.put("nobel3",nobel3);
+            currentPlayerName = (TextView) findViewById(R.id.currentPlayerName);
+            l11card = (ImageView) findViewById(R.id.l1card1);
+            l12card = (ImageView) findViewById(R.id.l1card2);
+            l13card = (ImageView) findViewById(R.id.l1card3);
+            l14card = (ImageView) findViewById(R.id.l1card4);
+            l21card = (ImageView) findViewById(R.id.l2card1);
+            l22card = (ImageView) findViewById(R.id.l2card2);
+            l23card = (ImageView) findViewById(R.id.l2card3);
+            l24card = (ImageView) findViewById(R.id.l2card4);
+            l31card = (ImageView) findViewById(R.id.l3card1);
+            l32card = (ImageView) findViewById(R.id.l3card2);
+            l33card = (ImageView) findViewById(R.id.l3card3);
+            l34card = (ImageView) findViewById(R.id.l3card4);
+            nobel1 = (ImageView) findViewById(R.id.nobel1);
+            nobel2 = (ImageView) findViewById(R.id.nobel2);
+            nobel3 = (ImageView) findViewById(R.id.nobel3);
 
-
-        pinkNumberAdded = (TextView)findViewById(R.id.pinknumberadded);
-        blueNumberAdded = (TextView)findViewById(R.id.bluenumberadded);
-        greenNumberAdded = (TextView)findViewById(R.id.greennumberadded);
-        redNumberAdded = (TextView)findViewById(R.id.rednumberadded);
-        blackNumberAdded = (TextView)findViewById(R.id.blacknumberadded);
-        pinkTokenImage = (ImageView)findViewById(R.id.pinkTokenImage);
-        blueTokenImage = (ImageView)findViewById(R.id.blueTokenImage);
-        greenTokenImage = (ImageView)findViewById(R.id.greenTokenImage);
-        redTokenImage = (ImageView)findViewById(R.id.redTokenImage);
-        blackTokenImage = (ImageView)findViewById(R.id.blackTokenImage);
-
-        mapImageView.put("pink",pinkTokenImage);
-        mapImageView.put("black",blackTokenImage);
-        mapImageView.put("blue",blueTokenImage);
-        mapImageView.put("red",redTokenImage);
-        mapImageView.put("green",greenTokenImage);
+            mapImageView = new HashMap<String, ImageView>();
+            mapImageView.put("l11card", l11card);
+            mapImageView.put("l12card", l12card);
+            mapImageView.put("l13card", l13card);
+            mapImageView.put("l14card", l14card);
+            mapImageView.put("l21card", l21card);
+            mapImageView.put("l22card", l22card);
+            mapImageView.put("l23card", l23card);
+            mapImageView.put("l24card", l24card);
+            mapImageView.put("l31card", l31card);
+            mapImageView.put("l32card", l32card);
+            mapImageView.put("l33card", l33card);
+            mapImageView.put("l34card", l34card);
+            mapImageView.put("nobel1", nobel1);
+            mapImageView.put("nobel2", nobel2);
+            mapImageView.put("nobel3", nobel3);
 
 
-        card = new cardsParams[4][];
-        card[0] = new cardsParams[4];
-        card[1] = new cardsParams[4];
-        card[2] = new cardsParams[4];
-        card[3] = new cardsParams[3];
+            pinkNumberAdded = (TextView) findViewById(R.id.pinknumberadded);
+            blueNumberAdded = (TextView) findViewById(R.id.bluenumberadded);
+            greenNumberAdded = (TextView) findViewById(R.id.greennumberadded);
+            redNumberAdded = (TextView) findViewById(R.id.rednumberadded);
+            blackNumberAdded = (TextView) findViewById(R.id.blacknumberadded);
+            pinkTokenImage = (ImageView) findViewById(R.id.pinkTokenImage);
+            blueTokenImage = (ImageView) findViewById(R.id.blueTokenImage);
+            greenTokenImage = (ImageView) findViewById(R.id.greenTokenImage);
+            redTokenImage = (ImageView) findViewById(R.id.redTokenImage);
+            blackTokenImage = (ImageView) findViewById(R.id.blackTokenImage);
 
-        deck = new gameDeck();
-        game.playerTable = new int[game.numOfPlayers][2][];
-        for(int x = 0; x<game.numOfPlayers;x++) {
-            game.playerTable[x][0] = new int[6];    // Cards with Score
-            game.playerTable[x][1] = new int[5];    // Tokens
-        }
+            mapImageView.put("pink", pinkTokenImage);
+            mapImageView.put("black", blackTokenImage);
+            mapImageView.put("blue", blueTokenImage);
+            mapImageView.put("red", redTokenImage);
+            mapImageView.put("green", greenTokenImage);
 
-        deck.reset();
-        deck.shuffle();
 
-        for(int i = 0;i<3;i++){
-           for(int j = 0; j<4;j++){
-                card[i][j] = deck.drawCard(i+1);
-                String cardImage = "l"+(i+1)+(j+1)+"card";
-                imageSetCard(cardImage,card[i][j],i+1);
+            card = new Card[4][];
+            card[0] = new Card[4];
+            card[1] = new Card[4];
+            card[2] = new Card[4];
+            card[3] = new Card[3];
+
+
+            game.playerTable = new int[game.numOfPlayers][2][];
+            for (int x = 0; x < game.numOfPlayers; x++) {
+                game.playerTable[x][0] = new int[6];    // Cards with Score
+                game.playerTable[x][1] = new int[5];    // Tokens
             }
+
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 4; j++) {
+                    card[i][j] = game.levelDeck[i].drawCard();
+                    String cardImage = "l" + (i + 1) + (j + 1) + "card";
+                    imageSetCard(cardImage, card[i][j], i + 1);
+                }
+            }
+            for (int a = 0; a < card[3].length; a++) {
+                card[3][a] = game.levelDeck[3].drawCard();
+                String cardImage = "nobel" + (a + 1);
+                imageSetCard(cardImage, card[3][a], 4);
+            }
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(), "Error1: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
-        for(int a = 0; a<card[3].length;a++){
-            card[3][a] = deck.drawCard(4);
-            String cardImage = "nobel"+(a+1);
-            imageSetCard(cardImage,card[3][a],4);
+        try{
+
+            pinkCards = (TextView) findViewById(R.id.pinkcards);
+            blackCards = (TextView) findViewById(R.id.blackcards);
+            blueCards = (TextView) findViewById(R.id.bluecards);
+            greenCards = (TextView) findViewById(R.id.greencards);
+            redCards = (TextView) findViewById(R.id.redcards);
+            pinkTokens = (TextView) findViewById(R.id.pinktokens);
+            blackTokens = (TextView) findViewById(R.id.blacktokens);
+            blueTokens = (TextView) findViewById(R.id.bluetokens);
+            redTokens = (TextView) findViewById(R.id.redtokens);
+            greenTokens = (TextView) findViewById(R.id.greentokens);
+            score = (TextView) findViewById(R.id.victorypoints);
+            mapTextView = new HashMap<String, TextView>();
+            mapTextView.put("pinkCards", pinkCards);
+            mapTextView.put("blackCards", blackCards);
+            mapTextView.put("blueCards", blueCards);
+            mapTextView.put("redCards", redCards);
+            mapTextView.put("greenCards", greenCards);
+            mapTextView.put("pinkTokens", pinkTokens);
+            mapTextView.put("blackTokens", blackTokens);
+            mapTextView.put("blueTokens", blueTokens);
+            mapTextView.put("redTokens", redTokens);
+            mapTextView.put("greenTokens", greenTokens);
+            mapTextView.put("pinkNumberAdded", pinkNumberAdded);
+            mapTextView.put("blackNumberAdded", blackNumberAdded);
+            mapTextView.put("blueNumberAdded", blueNumberAdded);
+            mapTextView.put("redNumberAdded", redNumberAdded);
+            mapTextView.put("greenNumberAdded", greenNumberAdded);
+            mapTextView.put("score", score);
+
+
+            tableCards = new String[]{"pinkCards", "blueCards", "greenCards", "redCards", "blackCards", "score"};
+            tableTokens = new String[]{"pinkTokens", "blueTokens", "greenTokens", "redTokens", "blackTokens"};
+            imageTokens = new String[]{"pink", "blue", "green", "red", "black"};
+            tokensAdded = new String[]{"pinkNumberAdded", "blueNumberAdded", "greenNumberAdded", "redNumberAdded", "blackNumberAdded"};
+
+
+            if (game.numOfPlayers == 2) {
+                colourID = new int[]{4, 4, 4, 4, 4};
+            } else if (game.numOfPlayers == 3) {
+                colourID = new int[]{6, 6, 6, 6, 6};
+            } else if (game.numOfPlayers == 4) {
+                colourID = new int[]{8, 8, 8, 8, 8};
+            }
+            colourID = setImageOfTokenImageWhileGivingToken(new int[]{0, 0, 0, 0, 0}, colourID);
+
+            informationTable = new TextView[4];
+            informationTable[0] = (TextView) findViewById(R.id.player1showtable);
+            informationTable[1] = (TextView) findViewById(R.id.player2showtable);
+            informationTable[2] = (TextView) findViewById(R.id.player3showtable);
+            informationTable[3] = (TextView) findViewById(R.id.player4showtable);
+
+            for (int i = 0; i < game.numOfPlayers; i++) {
+                informationTable[i].setText(game.playerNames[i]);
+            }
+            for (int i = game.numOfPlayers; i < 4; i++) {
+                informationTable[i].setText("");
+            }
+            whichplayer = (TextView) findViewById(R.id.whichplayer);
+            whichplayer.setText(game.playerNames[0] + " Score");
+            currentPlayerName.setText(game.playerNames[0] + "'s Turn");
+
+            startMediaPlayer(ringBackground);
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(), "Error2: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
-
-        pinkCards = (TextView)findViewById(R.id.pinkcards);
-        blackCards = (TextView)findViewById(R.id.blackcards);
-        blueCards = (TextView)findViewById(R.id.bluecards);
-        greenCards = (TextView)findViewById(R.id.greencards);
-        redCards = (TextView)findViewById(R.id.redcards);
-        pinkTokens = (TextView)findViewById(R.id.pinktokens);
-        blackTokens = (TextView)findViewById(R.id.blacktokens);
-        blueTokens = (TextView)findViewById(R.id.bluetokens);
-        redTokens = (TextView)findViewById(R.id.redtokens);
-        greenTokens = (TextView)findViewById(R.id.greentokens);
-        score = (TextView)findViewById(R.id.victorypoints);
-        mapTextView = new HashMap<String,TextView>();
-        mapTextView.put("pinkCards",pinkCards);
-        mapTextView.put("blackCards",blackCards);
-        mapTextView.put("blueCards",blueCards);
-        mapTextView.put("redCards",redCards);
-        mapTextView.put("greenCards",greenCards);
-        mapTextView.put("pinkTokens",pinkTokens);
-        mapTextView.put("blackTokens",blackTokens);
-        mapTextView.put("blueTokens",blueTokens);
-        mapTextView.put("redTokens",redTokens);
-        mapTextView.put("greenTokens",greenTokens);
-        mapTextView.put("pinkNumberAdded",pinkNumberAdded);
-        mapTextView.put("blackNumberAdded",blackNumberAdded);
-        mapTextView.put("blueNumberAdded",blueNumberAdded);
-        mapTextView.put("redNumberAdded",redNumberAdded);
-        mapTextView.put("greenNumberAdded",greenNumberAdded);
-        mapTextView.put("score",score);
-
-
-        tableCards = new String[]{"pinkCards", "blueCards", "greenCards", "redCards", "blackCards","score"};
-        tableTokens = new String[]{"pinkTokens", "blueTokens", "greenTokens", "redTokens", "blackTokens"};
-        imageTokens = new String[]{"pink", "blue", "green", "red", "black"};
-        tokensAdded = new String[]{"pinkNumberAdded", "blueNumberAdded", "greenNumberAdded", "redNumberAdded", "blackNumberAdded"};
-
-
-        if(game.numOfPlayers==2){ colourID = new int[]{4,4,4,4,4}; }
-        else if(game.numOfPlayers==3){ colourID = new int[]{6,6,6,6,6};}
-        else if(game.numOfPlayers==4){ colourID = new int[]{8,8,8,8,8};}
-        colourID = setImageOfTokenImageWhileGivingToken(new int[]{0, 0, 0, 0, 0},colourID);
-
-        informationTable = new TextView[4];
-        informationTable[0] = (TextView)findViewById(R.id.player1showtable);
-        informationTable[1] = (TextView)findViewById(R.id.player2showtable);
-        informationTable[2] = (TextView)findViewById(R.id.player3showtable);
-        informationTable[3] = (TextView)findViewById(R.id.player4showtable);
-
-        for(int i = 0; i<game.numOfPlayers;i++){
-            informationTable[i].setText(game.playerName[i]);
-        }
-        for(int i =game.numOfPlayers;i<4;i++){
-            informationTable[i].setText("");
-        }
-        whichplayer = (TextView)findViewById(R.id.whichplayer);
-        whichplayer.setText(game.playerName[0]+" Score");
-        currentPlayerName.setText(game.playerName[0]+"'s Turn");
-
-        startMediaPlayer(ringBackground);
 
     }
 
@@ -220,13 +229,13 @@ public class GameScreen extends AppCompatActivity {
                     // Changing to Next Player
                     MediaPlayer ringNextPlayer = MediaPlayer.create(GameScreen.this, R.raw.nextplayerturn);
                     ringNextPlayer.start();
-                    card[x-1][y-1] = deck.drawCard(x);
+                    card[x-1][y-1] = game.levelDeck[x].drawCard();
                     String cardImage = "l"+x+y+"card";
                     imageSetCard(cardImage,card[x-1][y-1],x);
 
                     game.currentPlayer = (++game.currentPlayer)%game.numOfPlayers;
-                    currentPlayerName.setText(game.playerName[game.currentPlayer]+"'s Turn");
-                    Toast.makeText(this, game.playerName[game.currentPlayer]+", It is your last turn.", Toast.LENGTH_SHORT).show();
+                    currentPlayerName.setText(game.playerNames[game.currentPlayer]+"'s Turn");
+                    Toast.makeText(this, game.playerNames[game.currentPlayer]+", It is your last turn.", Toast.LENGTH_SHORT).show();
                     setTableForNextPlayer(game.currentPlayer);
                 }
             }
@@ -234,12 +243,12 @@ public class GameScreen extends AppCompatActivity {
             // Changing to Next Player
             MediaPlayer ringNextPlayer = MediaPlayer.create(GameScreen.this, R.raw.nextplayerturn);
             ringNextPlayer.start();
-            card[x-1][y-1] = deck.drawCard(x);
+            card[x-1][y-1] = game.levelDeck[x].drawCard();
             String cardImage = "l"+x+y+"card";
             imageSetCard(cardImage,card[x-1][y-1],x);
 
             game.currentPlayer = (++game.currentPlayer)%game.numOfPlayers;
-            currentPlayerName.setText(game.playerName[game.currentPlayer]+"'s Turn");
+            currentPlayerName.setText(game.playerNames[game.currentPlayer]+"'s Turn");
             setTableForNextPlayer(game.currentPlayer);
             }
         }
@@ -248,7 +257,7 @@ public class GameScreen extends AppCompatActivity {
             Toast.makeText(this, "You don't have the resources.", Toast.LENGTH_SHORT).show();
         }
     }
-    public boolean checkPrice(cardsParams c,boolean isItNobel){
+    public boolean checkPrice(Card c, boolean isItNobel){
         boolean result = false;
         if(!isItNobel){
         for(int x =0; x<5;x++) {
@@ -266,9 +275,9 @@ public class GameScreen extends AppCompatActivity {
         }
         return result;
     }
-    public void imageSetCard(String s,cardsParams c,int drawCI){
+    public void imageSetCard(String s, Card c, int drawCI){
         ImageView i = mapImageView.get(s);
-        int card = deck.drawCardImage(c,drawCI);
+        int card = game.levelDeck[drawCI-1].drawCardImage(c);
         int cardImage = getResources().getIdentifier("c"+card,"drawable",getPackageName());
         i.setImageResource(cardImage);
     }
@@ -341,8 +350,8 @@ public class GameScreen extends AppCompatActivity {
                     MediaPlayer ringNextPlayer = MediaPlayer.create(GameScreen.this, R.raw.nextplayerturn);
                     ringNextPlayer.start();
                     game.currentPlayer = (++game.currentPlayer) % game.numOfPlayers;
-                    currentPlayerName.setText(game.playerName[game.currentPlayer] + "'s Turn");
-                    Toast.makeText(this, game.playerName[game.currentPlayer]+", It is your last turn.", Toast.LENGTH_SHORT).show();
+                    currentPlayerName.setText(game.playerNames[game.currentPlayer] + "'s Turn");
+                    Toast.makeText(this, game.playerNames[game.currentPlayer]+", It is your last turn.", Toast.LENGTH_SHORT).show();
                     setTableForNextPlayer(game.currentPlayer);
                 }
             }
@@ -351,7 +360,7 @@ public class GameScreen extends AppCompatActivity {
                 MediaPlayer ringNextPlayer = MediaPlayer.create(GameScreen.this, R.raw.nextplayerturn);
                 ringNextPlayer.start();
                 game.currentPlayer = (++game.currentPlayer) % game.numOfPlayers;
-                currentPlayerName.setText(game.playerName[game.currentPlayer] + "'s Turn");
+                currentPlayerName.setText(game.playerNames[game.currentPlayer] + "'s Turn");
                 setTableForNextPlayer(game.currentPlayer);
             }
 
@@ -366,7 +375,7 @@ public class GameScreen extends AppCompatActivity {
             TextView t = mapTextView.get(tableTokens[x]);
             t.setText(""+game.playerTable[newCurrentPlayer][1][x]);
         }
-        whichplayer.setText(game.playerName[newCurrentPlayer]+" Score");
+        whichplayer.setText(game.playerNames[newCurrentPlayer]+" Score");
 
     }
     public void setAddersToZero(String[] tokenAdded){
@@ -390,7 +399,7 @@ public class GameScreen extends AppCompatActivity {
         }
         return playerTokenTable;
     }
-    public void addCardWithScoreToCurrentPlayerTable(cardsParams c, int[] playerCardsTable){
+    public void addCardWithScoreToCurrentPlayerTable(Card c, int[] playerCardsTable){
         if(c.colour.equals("pink")) playerCardsTable[0]++;
         else if(c.colour.equals("blue")) playerCardsTable[1]++;
         else if(c.colour.equals("green")) playerCardsTable[2]++;
@@ -399,7 +408,7 @@ public class GameScreen extends AppCompatActivity {
 
         playerCardsTable[5] += c.priceWithVP[5];
     }
-    public int[] findExtraTokens(cardsParams c,int[] playerTable){
+    public int[] findExtraTokens(Card c, int[] playerTable){
         int[] extraTokens = new int[5];
         for(int x = 0; x<5;x++){
             if(c.priceWithVP[x]-playerTable[x] >=0)
@@ -434,7 +443,7 @@ public class GameScreen extends AppCompatActivity {
         for(int x = 0 ;x<card[3].length;x++){
                 if(checkPrice(card[3][x],true)) {
                     addCardWithScoreToCurrentPlayerTable(card[3][x],game.playerTable[game.currentPlayer][0]);
-                    card[3][x] = deck.nobelback;
+                    card[3][x] = game.levelDeck[3].back;
                     String s = "nobel"+(x+1);
                     ImageView i = mapImageView.get(s);
                     int cardImage = getResources().getIdentifier("nobel","drawable",getPackageName());
@@ -446,9 +455,9 @@ public class GameScreen extends AppCompatActivity {
         if(view.getId() == R.id.player1showtable)
             setTableForNextPlayer(0);
         else if(view.getId()== R.id.player2showtable)
-        setTableForNextPlayer(1);
+            setTableForNextPlayer(1);
         if(game.numOfPlayers >=3 && view.getId()== R.id.player3showtable)
-        setTableForNextPlayer(2);
+            setTableForNextPlayer(2);
         if(game.numOfPlayers == 4 && view.getId()== R.id.player4showtable)
             setTableForNextPlayer(3);
     }

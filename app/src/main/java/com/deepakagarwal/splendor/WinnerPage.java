@@ -30,7 +30,7 @@ public class WinnerPage extends AppCompatActivity {
             TextView scoreText = new TextView(this);
             TextView cardsText = new TextView(this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            nameText.setText(""+game.playerName[x]);
+            nameText.setText(""+game.playerNames[x]);
             scoreText.setText(""+game.playerTable[x][0][5]);
             cardsText.setText(""+getCards(x));
             nameText.setTextSize(30);
@@ -51,7 +51,7 @@ public class WinnerPage extends AppCompatActivity {
     }
 
     public String getWinner(){
-        String winnerName = game.playerName[0];
+        String winnerName = game.playerNames[0];
         int winner = 0;
         int maxScore = game.playerTable[0][0][5];
 
@@ -60,16 +60,16 @@ public class WinnerPage extends AppCompatActivity {
                 if(getCards(winner) > getCards(x)){
                     winner = x;
                     maxScore = game.playerTable[x][0][5];
-                    winnerName = game.playerName[x];
+                    winnerName = game.playerNames[x];
                 }
                 else if(getCards(winner) == getCards(x)){
-                    winnerName+= ", "+game.playerName[x];
+                    winnerName+= ", "+game.playerNames[x];
                 }
             }
             else if(maxScore < game.playerTable[x][0][5]){
                 winner = x;
                 maxScore = game.playerTable[x][0][5];
-                winnerName = game.playerName[x];
+                winnerName = game.playerNames[x];
             }
         }
         return winnerName;
