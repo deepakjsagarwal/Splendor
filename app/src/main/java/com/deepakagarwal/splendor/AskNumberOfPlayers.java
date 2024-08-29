@@ -26,15 +26,15 @@ public class AskNumberOfPlayers extends AppCompatActivity {
         setContentView(R.layout.activity_ask_number_of_players);
         i = 1;
         names = new TextView[4];
-        names[0] = (TextView)findViewById(R.id.player1name);
-        names[1] = (TextView)findViewById(R.id.player2name);
-        names[2] = (TextView)findViewById(R.id.player3name);
-        names[3] = (TextView)findViewById(R.id.player4name);
+        names[0] = (TextView) findViewById(R.id.player1name);
+        names[1] = (TextView) findViewById(R.id.player2name);
+        names[2] = (TextView) findViewById(R.id.player3name);
+        names[3] = (TextView) findViewById(R.id.player4name);
         player = new TextView[4];
-        player[0] = (TextView)findViewById(R.id.player1);
-        player[1] = (TextView)findViewById(R.id.player2);
-        player[2] = (TextView)findViewById(R.id.player3);
-        player[3] = (TextView)findViewById(R.id.player4);
+        player[0] = (TextView) findViewById(R.id.player1);
+        player[1] = (TextView) findViewById(R.id.player2);
+        player[2] = (TextView) findViewById(R.id.player3);
+        player[3] = (TextView) findViewById(R.id.player4);
 
         startMediaPlayer(ringBackground);
     }
@@ -45,36 +45,43 @@ public class AskNumberOfPlayers extends AppCompatActivity {
         startMediaPlayer(ringBackground);
     }
 
-    public void save(View view){
-        if(checkName()) {
-            game = new Game(i+1);
-            game.playerNames = new String[game.numOfPlayers];
-            for (int x = 0; x <= i; x++)
-                game.playerNames[x] = names[x].getText().toString();
-            Intent intent = new Intent(this, GameScreen.class);
-            startActivity(intent);
-        }
-        else{
+    public void save(View view) {
+        if (checkName()) {
+            try {
+                game = new Game(i + 1);
+                for (int x = 0; x <= i; x++)
+                    game.players[x].name = names[x].getText().toString();
+                Intent intent = new Intent(this, GameScreen.class);
+                Toast.makeText(getApplicationContext(), "Starting new Screen", Toast.LENGTH_LONG).show();
+                startActivity(intent);
+            }catch (Exception e){
+                System.out.println("debug2:"+e.getMessage());
+                Toast.makeText(getApplicationContext(), "E: "+e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        } else {
             Toast.makeText(this, "Name can't be Empty.", Toast.LENGTH_SHORT).show();
         }
     }
-    public void plus(View view){
+
+    public void plus(View view) {
         i++;
-        if(i>=3) i =3;
+        if (i >= 3) i = 3;
         player[i].setVisibility(View.VISIBLE);
         names[i].setVisibility(View.VISIBLE);
     }
-    public void minus(View view){
-        if(i>1) {
+
+    public void minus(View view) {
+        if (i > 1) {
             player[i].setVisibility(View.INVISIBLE);
             names[i].setVisibility(View.INVISIBLE);
         }
         i--;
-        if(i<1) i =1;
+        if (i < 1) i = 1;
     }
-    public boolean checkName(){
-        for (int x = 0; x <= i; x++){
-            if(names[x].getText().toString().trim().isEmpty()) return false;
+
+    public boolean checkName() {
+        for (int x = 0; x <= i; x++) {
+            if (names[x].getText().toString().trim().isEmpty()) return false;
         }
         return true;
     }
