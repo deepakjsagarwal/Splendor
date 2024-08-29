@@ -51,7 +51,6 @@ public class AskNumberOfPlayers extends AppCompatActivity {
             for (int x = 0; x <= i; x++)
                 game.players[x].name = names[x].getText().toString();
             Intent intent = new Intent(this, GameScreen.class);
-            Toast.makeText(getApplicationContext(), "Starting new Screen", Toast.LENGTH_LONG).show();
             startActivity(intent);
         } else {
             Toast.makeText(this, "Name can't be Empty.", Toast.LENGTH_SHORT).show();

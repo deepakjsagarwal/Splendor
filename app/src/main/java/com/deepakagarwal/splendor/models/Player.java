@@ -1,6 +1,7 @@
 package com.deepakagarwal.splendor.models;
 
 import static com.deepakagarwal.splendor.utils.Constants.COLORS;
+import static com.deepakagarwal.splendor.utils.Constants.colorToInt;
 
 public class Player {
     public String name;
@@ -43,12 +44,7 @@ public class Player {
     }
 
     public void addCardWithScoreToCurrentPlayerTable(Card c) {
-        if (c.colour.equals("pink")) this.cards[0]++;
-        else if (c.colour.equals("blue")) this.cards[1]++;
-        else if (c.colour.equals("green")) this.cards[2]++;
-        else if (c.colour.equals("red")) this.cards[3]++;
-        else if (c.colour.equals("black")) this.cards[4]++;
-
+        this.cards[colorToInt(c.colour)]++;
         this.cards[5] += c.priceWithVP[5];
     }
 

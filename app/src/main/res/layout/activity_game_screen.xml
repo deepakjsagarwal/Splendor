@@ -47,7 +47,7 @@
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:onClick="pickCard"
-                android:tag="31"
+                android:tag="20"
                 app:srcCompat="@drawable/c1002" />
 
             <ImageView
@@ -57,7 +57,7 @@
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:onClick="pickCard"
-                android:tag="32"
+                android:tag="21"
                 app:srcCompat="@drawable/c1002" />
 
             <ImageView
@@ -67,7 +67,7 @@
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:onClick="pickCard"
-                android:tag="33"
+                android:tag="22"
                 app:srcCompat="@drawable/c1002" />
 
             <ImageView
@@ -77,7 +77,7 @@
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:onClick="pickCard"
-                android:tag="34"
+                android:tag="23"
                 app:srcCompat="@drawable/c1002" />
 
         </LinearLayout>
@@ -95,7 +95,7 @@
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:onClick="pickCard"
-                android:tag="21"
+                android:tag="10"
                 app:srcCompat="@drawable/c1001" />
 
             <ImageView
@@ -105,7 +105,7 @@
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:onClick="pickCard"
-                android:tag="22"
+                android:tag="11"
                 app:srcCompat="@drawable/c1001" />
 
             <ImageView
@@ -115,7 +115,7 @@
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:onClick="pickCard"
-                android:tag="23"
+                android:tag="12"
                 app:srcCompat="@drawable/c1001" />
 
             <ImageView
@@ -125,7 +125,7 @@
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:onClick="pickCard"
-                android:tag="24"
+                android:tag="13"
                 app:srcCompat="@drawable/c1001" />
 
         </LinearLayout>
@@ -144,7 +144,7 @@
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:onClick="pickCard"
-                android:tag="11"
+                android:tag="00"
                 app:srcCompat="@drawable/c1000" />
 
             <ImageView
@@ -154,7 +154,7 @@
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:onClick="pickCard"
-                android:tag="12"
+                android:tag="01"
                 app:srcCompat="@drawable/c1000" />
 
             <ImageView
@@ -164,7 +164,7 @@
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:onClick="pickCard"
-                android:tag="13"
+                android:tag="02"
                 app:srcCompat="@drawable/c1000" />
 
             <ImageView
@@ -174,7 +174,7 @@
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:onClick="pickCard"
-                android:tag="14"
+                android:tag="03"
                 app:srcCompat="@drawable/c1000" />
 
         </LinearLayout>
