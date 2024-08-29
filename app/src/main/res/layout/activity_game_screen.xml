@@ -244,13 +244,13 @@
 
             <TextView
                 android:id="@+id/pinknumberadded"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"
                 android:textSize="24sp" />
 
             <ImageView
@@ -278,13 +278,13 @@
 
             <TextView
                 android:id="@+id/bluenumberadded"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"
                 android:textSize="24sp" />
 
             <ImageView
@@ -312,13 +312,13 @@
 
             <TextView
                 android:id="@+id/greennumberadded"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"
                 android:textSize="24sp" />
 
             <ImageView
@@ -346,13 +346,13 @@
 
             <TextView
                 android:id="@+id/rednumberadded"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"
                 android:textSize="24sp" />
 
             <ImageView
@@ -380,13 +380,13 @@
 
             <TextView
                 android:id="@+id/blacknumberadded"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"
                 android:textSize="24sp" />
 
             <ImageView
@@ -482,77 +482,77 @@
 
             <TextView
                 android:id="@+id/textView2"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Cards"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/pinkcards"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"
                 android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/bluecards"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"
                 android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/greencards"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                android:textSize="26sp"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/redcards"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                android:textSize="26sp"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/blackcards"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                android:textSize="26sp"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/whichplayer"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Score"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"
                 android:textSize="12sp" />
         </TableRow>
 
@@ -573,69 +573,69 @@
 
             <TextView
                 android:id="@+id/pinktokens"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                android:textSize="26sp"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/bluetokens"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                android:textSize="26sp"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/greentokens"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                android:textSize="26sp"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/redtokens"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                android:textSize="26sp"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/blacktokens"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                android:textSize="26sp"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+                android:textSize="26sp" />
 
             <TextView
                 android:id="@+id/victorypoints"
+                style="android:style/TextAppearance.DeviceDefault.Medium"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:inputType="number"
                 android:text="0"
-                android:textSize="24sp"
-                style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+                android:textSize="24sp" />
         </TableRow>
 
     </TableLayout>
@@ -653,47 +653,47 @@
 
         <TextView
             android:id="@+id/player4showtable"
+            style="android:style/TextAppearance.DeviceDefault.Medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="showInfo"
             android:gravity="center"
+            android:onClick="showInfo"
             android:text="Player 4"
-            android:textSize="12sp"
-            style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/player3showtable"
+            style="android:style/TextAppearance.DeviceDefault.Medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="showInfo"
             android:gravity="center"
+            android:onClick="showInfo"
             android:text="Player 3"
-            android:textSize="12sp"
-            style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/player2showtable"
+            style="android:style/TextAppearance.DeviceDefault.Medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="showInfo"
             android:gravity="center"
+            android:onClick="showInfo"
             android:text="Player 2"
-            android:textSize="12sp"
-            style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/player1showtable"
+            style="android:style/TextAppearance.DeviceDefault.Medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:onClick="showInfo"
             android:text="Player 1"
-            android:textSize="12sp"
-            style = "android:style/TextAppearance.DeviceDefault.Medium"/>
+            android:textSize="12sp" />
 
     </LinearLayout>
 
