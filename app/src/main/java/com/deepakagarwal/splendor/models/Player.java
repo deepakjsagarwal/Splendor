@@ -9,7 +9,7 @@ public class Player {
 
     public Player() {
         this.name = "";
-        cards = new int[COLORS+1]; //Colors+VP
+        cards = new int[COLORS + 1]; //Colors+VP
         tokens = new int[COLORS];
     }
 
