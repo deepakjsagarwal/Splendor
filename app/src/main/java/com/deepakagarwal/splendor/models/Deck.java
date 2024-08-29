@@ -14,7 +14,7 @@ import java.util.Random;
 public class Deck {
     public Card back;
     Card[] cards;
-    //    public static Card back;
+
     int cardsInDeck;
 
     public Deck(int level) {
@@ -179,7 +179,6 @@ public class Deck {
             return back;
         } else {
             return cards[--cardsInDeck];
-
         }
     }
 
@@ -191,8 +190,6 @@ public class Deck {
     }
 
     public boolean isEmpty() {
-
         return cardsInDeck == 0;
-
     }
 }

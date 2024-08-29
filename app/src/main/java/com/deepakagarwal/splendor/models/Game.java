@@ -1,16 +1,12 @@
 package com.deepakagarwal.splendor.models;
 
-import static com.deepakagarwal.splendor.AskNumberOfPlayers.game;
 import static com.deepakagarwal.splendor.utils.Constants.LEVELS;
 
 public class Game {
 
-
     public Deck[] levelDeck;
 
     public int currentPlayer;
-//    public int[][][] playerTable;
-//    public String[] playerNames;
     public Player[] players;
 
     public Game(int numOfPlayers) {

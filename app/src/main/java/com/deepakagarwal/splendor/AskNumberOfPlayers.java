@@ -47,17 +47,11 @@ public class AskNumberOfPlayers extends AppCompatActivity {
 
     public void save(View view) {
         if (checkName()) {
-            try {
-                game = new Game(i + 1);
-                for (int x = 0; x <= i; x++)
-                    game.players[x].name = names[x].getText().toString();
-                Intent intent = new Intent(this, GameScreen.class);
-                Toast.makeText(getApplicationContext(), "Starting new Screen", Toast.LENGTH_LONG).show();
-                startActivity(intent);
-            }catch (Exception e){
-                System.out.println("debug2:"+e.getMessage());
-                Toast.makeText(getApplicationContext(), "E: "+e.getMessage(), Toast.LENGTH_LONG).show();
-            }
+            game = new Game(i + 1);
+            for (int x = 0; x <= i; x++)
+                game.players[x].name = names[x].getText().toString();
+            Intent intent = new Intent(this, GameScreen.class);
+            startActivity(intent);
         } else {
             Toast.makeText(this, "Name can't be Empty.", Toast.LENGTH_SHORT).show();
         }
