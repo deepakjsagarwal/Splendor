@@ -1,6 +1,7 @@
 package com.deepakagarwal.splendor.models;
 
 import static com.deepakagarwal.splendor.utils.Constants.COLORS;
+import static com.deepakagarwal.splendor.utils.Constants.NOBEL;
 import static com.deepakagarwal.splendor.utils.Constants.colorToInt;
 
 public class Player {
@@ -14,22 +15,22 @@ public class Player {
         tokens = new int[COLORS];
     }
 
-    public boolean checkPrice(Card c, boolean isItNobel) {
+    public boolean canPurchaseCard(Card c) {
         boolean result = false;
-        if (!isItNobel) {
-            for (int x = 0; x < 5; x++) {
-                if (c.priceWithVP[x] <= this.cards[x] + this.tokens[x])
-                    result = true;
-                else return false;
-            }
-        } else {
-            for (int x = 0; x < 5; x++) {
-                if (c.priceWithVP[x] <= this.cards[x])
-                    result = true;
-                else return false;
-            }
+
+        for (int x = 0; x < 5; x++) {
+            if (c.priceWithVP[x] <= this.cards[x] + (c.level == NOBEL ? 0 : this.tokens[x]))
+                result = true;
+            else return false;
         }
         return result;
+    }
+
+    public int[] purchaseCard(Card c) {
+        int[] extraTokens = this.findExtraTokens(c);
+        this.removeTokensForPurchase(extraTokens);
+        this.addCardWithScore(c);
+        return extraTokens;
     }
 
     public int[] findExtraTokens(Card c) {
@@ -43,15 +44,27 @@ public class Player {
         return extraTokens;
     }
 
-    public void addCardWithScoreToCurrentPlayerTable(Card c) {
+    public void addCardWithScore(Card c) {
         this.cards[colorToInt(c.colour)]++;
         this.cards[5] += c.priceWithVP[5];
     }
 
-    public int[] removeTokenFromTableOfCurrentPlayer(int[] extraTokens) {
+    public void removeTokensForPurchase(int[] extraTokens) {
         for (int x = 0; x < 5; x++) {
             this.tokens[x] -= extraTokens[x];
         }
-        return this.tokens;
+    }
+
+    public void pickTokens(int[] colourAdded) {
+        for (int i = 0; i < colourAdded.length; i++) {
+            this.tokens[i] += colourAdded[i];
+        }
+    }
+
+    public int totalNumberOfTokens() {
+        int totalTokens = 0;
+        for (int x = 0; x < 5; x++)
+            totalTokens += this.tokens[x];
+        return totalTokens;
     }
 }
