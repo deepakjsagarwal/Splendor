@@ -182,13 +182,6 @@ public class Deck {
         }
     }
 
-    public int drawCardImage(Card card) {
-        if (isEmpty()) {
-            return back.idNumber;
-        }
-        return card.idNumber;
-    }
-
     public boolean isEmpty() {
         return cardsInDeck == 0;
     }
