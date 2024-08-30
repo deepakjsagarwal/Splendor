@@ -136,20 +136,17 @@ public class GameScreen extends AppCompatActivity {
     }
 
     public void pickCard(View view) {
+
         String s = String.valueOf(view.getTag());
         int x = Integer.parseInt(String.valueOf(s.charAt(0)));
         int y = Integer.parseInt(String.valueOf(s.charAt(1)));
 
         if (game.getCurrentPlayer().canPurchaseCard(game.tableCard[x][y])) {
-
             game.purchaseCard(game.tableCard[x][y]);
             game.tableCard[x][y] = game.levelDeck[x].drawCard();
-
             game.checkAndPurchaseNobel();
-
             // setting adders to zero for a new player to be set
             setAddersToZero();
-
             if (game.isGameOver()) {
                 if (game.currentPlayer == game.players.length - 1) {
                     Intent intent = new Intent(this, WinnerPage.class);
@@ -168,7 +165,7 @@ public class GameScreen extends AppCompatActivity {
     }
 
     public void done(View view) {
-
+        System.out.println("abc Before done:" + game);
         int[] colourAdded = getAdders();
 
         String error = game.checkTokenAdded(colourAdded);
@@ -193,6 +190,7 @@ public class GameScreen extends AppCompatActivity {
         } else {
             Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
         }
+        System.out.println("abc After done:" + game);
 
     }
 

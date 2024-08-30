@@ -19,7 +19,7 @@ public class Player {
         boolean result = false;
 
         for (int x = 0; x < 5; x++) {
-            if (c.priceWithVP[x] <= this.cards[x] + (c.level == NOBEL ? 0 : this.tokens[x]))
+            if (c.priceWithVP[x] <= (this.cards[x] + (c.level == NOBEL ? 0 : this.tokens[x])))
                 result = true;
             else return false;
         }
@@ -45,7 +45,8 @@ public class Player {
     }
 
     public void addCardWithScore(Card c) {
-        this.cards[colorToInt(c.colour)]++;
+        if (colorToInt(c.colour) >= 0)     // Card is not nobel
+            this.cards[colorToInt(c.colour)]++;
         this.cards[5] += c.priceWithVP[5];
     }
 

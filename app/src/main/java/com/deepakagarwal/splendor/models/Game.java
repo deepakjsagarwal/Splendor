@@ -73,14 +73,14 @@ public class Game {
         this.getCurrentPlayer().pickTokens(colourAdded);
 
         for (int i = 0; i < tableTokens.length; i++) {
-            tableTokens[i]-=colourAdded[i];
+            tableTokens[i] -= colourAdded[i];
         }
     }
 
     public void purchaseCard(Card card) {
         int[] extraTokens = this.getCurrentPlayer().purchaseCard(card);
         for (int i = 0; i < tableTokens.length; i++) {
-            tableTokens[i]+=extraTokens[i];
+            tableTokens[i] += extraTokens[i];
         }
     }
 
