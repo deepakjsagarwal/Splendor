@@ -68,4 +68,12 @@ public class Player {
             totalTokens += this.tokens[x];
         return totalTokens;
     }
+
+    public int getCountOfCards() {
+        int numOfTotalCards = 0;
+        for (int y = 0; y < 5; y++) {
+            numOfTotalCards += this.cards[y];
+        }
+        return numOfTotalCards;
+    }
 }

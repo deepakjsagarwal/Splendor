@@ -7,6 +7,11 @@ import static com.deepakagarwal.splendor.utils.Constants.LEVELS;
 import static com.deepakagarwal.splendor.utils.Constants.NOBEL;
 import static com.deepakagarwal.splendor.utils.Constants.intToColor;
 
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.deepakagarwal.splendor.R;
+
 public class Game {
 
     public Deck[] levelDeck;
@@ -91,6 +96,29 @@ public class Game {
                 game.tableCard[3][x] = game.levelDeck[NOBEL].back;
             }
         }
+    }
+
+    public String getWinner() {
+        StringBuilder winnerName = new StringBuilder(this.players[0].name);
+        int winner = 0;
+        int maxScore = this.players[0].cards[5];
+
+        for (int x = 1; x < this.players.length; x++) {
+            if (maxScore == this.players[x].cards[5]) {
+                if (this.players[winner].getCountOfCards() > this.players[x].getCountOfCards()) {
+                    winner = x;
+                    maxScore = game.players[x].cards[5];
+                    winnerName = new StringBuilder(game.players[x].name);
+                } else if (this.players[winner].getCountOfCards() == this.players[x].getCountOfCards()) {
+                    winnerName.append(", ").append(game.players[x].name);
+                }
+            } else if (maxScore < game.players[x].cards[5]) {
+                winner = x;
+                maxScore = game.players[x].cards[5];
+                winnerName = new StringBuilder(game.players[x].name);
+            }
+        }
+        return winnerName.toString();
     }
 
     public String checkTokenAdded(int[] colourAdded) {
