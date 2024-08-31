@@ -31,7 +31,7 @@ public class WinnerPage extends AppCompatActivity {
             TextView cardsText = new TextView(this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             nameText.setText(game.players[x].name);
-            scoreText.setText(String.valueOf(game.players[x].cards[5]));
+            scoreText.setText(String.valueOf(game.players[x].victoryPoints));
             cardsText.setText(String.valueOf(game.players[x].getCountOfCards()));
             nameText.setTextSize(30);
             scoreText.setTextSize(30);

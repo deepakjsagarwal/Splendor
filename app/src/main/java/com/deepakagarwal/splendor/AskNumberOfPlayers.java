@@ -1,6 +1,8 @@
 package com.deepakagarwal.splendor;
 
 import static com.deepakagarwal.splendor.MainActivity.ringBackground;
+import static com.deepakagarwal.splendor.utils.Constants.MAX_PLAYERS;
+import static com.deepakagarwal.splendor.utils.Constants.MIN_PLAYERS;
 import static com.deepakagarwal.splendor.utils.Utils.startMediaPlayer;
 
 import android.content.Intent;
@@ -16,25 +18,30 @@ import com.deepakagarwal.splendor.models.Game;
 public class AskNumberOfPlayers extends AppCompatActivity {
 
     public static Game game;
-    int i;
-    TextView[] player;
+    int numOfPlayers;
+    TextView[] players;
     TextView[] names;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ask_number_of_players);
-        i = 1;
-        names = new TextView[4];
-        names[0] = (TextView) findViewById(R.id.player1name);
-        names[1] = (TextView) findViewById(R.id.player2name);
-        names[2] = (TextView) findViewById(R.id.player3name);
-        names[3] = (TextView) findViewById(R.id.player4name);
-        player = new TextView[4];
-        player[0] = (TextView) findViewById(R.id.player1);
-        player[1] = (TextView) findViewById(R.id.player2);
-        player[2] = (TextView) findViewById(R.id.player3);
-        player[3] = (TextView) findViewById(R.id.player4);
+
+        numOfPlayers = MIN_PLAYERS;
+
+        int[] playerNameIds = {R.id.player1name, R.id.player2name, R.id.player3name, R.id.player4name};
+
+        names = new TextView[playerNameIds.length];
+        for (int i = 0; i < playerNameIds.length; i++) {
+            names[i] = findViewById(playerNameIds[i]);
+        }
+
+        int[] playerIds = {R.id.player1, R.id.player2, R.id.player3, R.id.player4};
+        players = new TextView[playerIds.length];
+
+        for (int i = 0; i < playerIds.length; i++) {
+            players[i] = findViewById(playerIds[i]);
+        }
 
         startMediaPlayer(ringBackground);
     }
@@ -47,9 +54,10 @@ public class AskNumberOfPlayers extends AppCompatActivity {
 
     public void save(View view) {
         if (checkName()) {
-            game = new Game(i + 1);
-            for (int x = 0; x <= i; x++)
+            game = new Game(numOfPlayers);
+            for (int x = 0; x < numOfPlayers; x++)
                 game.players[x].name = names[x].getText().toString();
+
             Intent intent = new Intent(this, GameScreen.class);
             startActivity(intent);
         } else {
@@ -58,23 +66,23 @@ public class AskNumberOfPlayers extends AppCompatActivity {
     }
 
     public void plus(View view) {
-        i++;
-        if (i >= 3) i = 3;
-        player[i].setVisibility(View.VISIBLE);
-        names[i].setVisibility(View.VISIBLE);
+        numOfPlayers++;
+        if (numOfPlayers >= MAX_PLAYERS) numOfPlayers = MAX_PLAYERS;
+        players[numOfPlayers - 1].setVisibility(View.VISIBLE);
+        names[numOfPlayers - 1].setVisibility(View.VISIBLE);
     }
 
     public void minus(View view) {
-        if (i > 1) {
-            player[i].setVisibility(View.INVISIBLE);
-            names[i].setVisibility(View.INVISIBLE);
+        if (numOfPlayers > MIN_PLAYERS) {
+            players[numOfPlayers - 1].setVisibility(View.INVISIBLE);
+            names[numOfPlayers - 1].setVisibility(View.INVISIBLE);
         }
-        i--;
-        if (i < 1) i = 1;
+        numOfPlayers--;
+        if (numOfPlayers < MIN_PLAYERS) numOfPlayers = MIN_PLAYERS;
     }
 
     public boolean checkName() {
-        for (int x = 0; x <= i; x++) {
+        for (int x = 0; x < numOfPlayers; x++) {
             if (names[x].getText().toString().trim().isEmpty()) return false;
         }
         return true;

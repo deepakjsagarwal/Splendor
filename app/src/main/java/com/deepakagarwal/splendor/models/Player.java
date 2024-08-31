@@ -8,18 +8,20 @@ public class Player {
     public String name;
     public int[] cards;
     public int[] tokens;
+    public int victoryPoints;
 
     public Player() {
         this.name = "";
-        cards = new int[COLORS + 1]; //Colors+VP
+        cards = new int[COLORS];
         tokens = new int[COLORS];
+        victoryPoints = 0;
     }
 
     public boolean canPurchaseCard(Card c) {
         boolean result = false;
 
-        for (int x = 0; x < 5; x++) {
-            if (c.priceWithVP[x] <= (this.cards[x] + (c.level == NOBEL ? 0 : this.tokens[x])))
+        for (int x = 0; x < COLORS; x++) {
+            if (c.price[x] <= (this.cards[x] + (c.level == NOBEL ? 0 : this.tokens[x])))
                 result = true;
             else return false;
         }
@@ -34,12 +36,9 @@ public class Player {
     }
 
     public int[] findExtraTokens(Card c) {
-        int[] extraTokens = new int[5];
-        for (int x = 0; x < 5; x++) {
-            if (c.priceWithVP[x] - this.cards[x] >= 0)
-                extraTokens[x] = c.priceWithVP[x] - this.cards[x];
-            else
-                extraTokens[x] = 0;
+        int[] extraTokens = new int[COLORS];
+        for (int x = 0; x < this.tokens.length; x++) {
+            extraTokens[x] = Math.max(c.price[x] - this.cards[x], 0);
         }
         return extraTokens;
     }
@@ -47,32 +46,33 @@ public class Player {
     public void addCardWithScore(Card c) {
         if (colorToInt(c.colour) >= 0)     // Card is not nobel
             this.cards[colorToInt(c.colour)]++;
-        this.cards[5] += c.priceWithVP[5];
+        this.victoryPoints += c.victoryPoints;
     }
 
     public void removeTokensForPurchase(int[] extraTokens) {
-        for (int x = 0; x < 5; x++) {
+        for (int x = 0; x < this.tokens.length; x++) {
             this.tokens[x] -= extraTokens[x];
         }
     }
 
     public void pickTokens(int[] colourAdded) {
-        for (int i = 0; i < colourAdded.length; i++) {
+        for (int i = 0; i < this.tokens.length; i++) {
             this.tokens[i] += colourAdded[i];
         }
     }
 
     public int totalNumberOfTokens() {
         int totalTokens = 0;
-        for (int x = 0; x < 5; x++)
-            totalTokens += this.tokens[x];
+        for (int token : this.tokens) {
+            totalTokens += token;
+        }
         return totalTokens;
     }
 
     public int getCountOfCards() {
         int numOfTotalCards = 0;
-        for (int y = 0; y < 5; y++) {
-            numOfTotalCards += this.cards[y];
+        for (int card : this.cards) {
+            numOfTotalCards += card;
         }
         return numOfTotalCards;
     }

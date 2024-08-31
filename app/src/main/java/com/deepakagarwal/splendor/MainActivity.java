@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void playNewGame(View view) {
-        //Toast.makeText(this, "Starting new game....", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Starting new game....", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, AskNumberOfPlayers.class);
         startActivity(intent);
     }

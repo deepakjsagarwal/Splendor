@@ -6,6 +6,7 @@ import static com.deepakagarwal.splendor.utils.Constants.COLORS;
 import static com.deepakagarwal.splendor.utils.Constants.COUNT_TABLE_LEVEL_CARD;
 import static com.deepakagarwal.splendor.utils.Constants.COUNT_TABLE_NOBEL;
 import static com.deepakagarwal.splendor.utils.Constants.LEVELS;
+import static com.deepakagarwal.splendor.utils.Constants.MAX_PLAYERS;
 import static com.deepakagarwal.splendor.utils.Constants.NOBEL;
 import static com.deepakagarwal.splendor.utils.Constants.intToColor;
 import static com.deepakagarwal.splendor.utils.Utils.startMediaPlayer;
@@ -30,7 +31,8 @@ public class GameScreen extends AppCompatActivity {
     TextView[] adders;
     ImageView[] tokenImages;
 
-    TextView[] cardsWithVP;
+    TextView[] cards;
+    TextView victoryPoints;
     TextView[] tokens;
 
     TextView currentPlayerName;
@@ -94,14 +96,14 @@ public class GameScreen extends AppCompatActivity {
                 R.id.greencards,
                 R.id.redcards,
                 R.id.blackcards,
-                R.id.victorypoints
         };
 
-        cardsWithVP = new TextView[cardsWithVPIds.length];
+        cards = new TextView[cardsWithVPIds.length];
 
         for (int i = 0; i < cardsWithVPIds.length; i++) {
-            cardsWithVP[i] = findViewById(cardsWithVPIds[i]);
+            cards[i] = findViewById(cardsWithVPIds[i]);
         }
+        victoryPoints = findViewById(R.id.victorypoints);
 
         int[] tokenTextIds = {
                 R.id.pinktokens,
@@ -119,7 +121,7 @@ public class GameScreen extends AppCompatActivity {
 
         whichPlayer = findViewById(R.id.whichplayer);
 
-        informationTable = new TextView[4];
+        informationTable = new TextView[MAX_PLAYERS];
         informationTable[0] = findViewById(R.id.player1showtable);
         informationTable[1] = findViewById(R.id.player2showtable);
         informationTable[2] = findViewById(R.id.player3showtable);
@@ -213,8 +215,7 @@ public class GameScreen extends AppCompatActivity {
     }
 
     public void setAddersToZero() {
-        for (int x = 0; x < 5; x++) {
-            TextView tAdd = adders[x];
+        for (TextView tAdd : adders) {
             tAdd.setText("0");
         }
     }
@@ -233,7 +234,7 @@ public class GameScreen extends AppCompatActivity {
         currentPlayerName.setText(game.getCurrentPlayer().name + "'s Turn");
 
         //Setting up all table cards for L1,L2,L3 and NOBEL
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < LEVELS; i++) {
             for (int j = 0; j < game.tableCard[i].length; j++) {
                 setImageForCard(table_cards[i][j], game.tableCard[i][j]);
             }
@@ -246,19 +247,21 @@ public class GameScreen extends AppCompatActivity {
         for (int i = 0; i < game.players.length; i++) {
             informationTable[i].setText(game.players[i].name);
         }
-        for (int i = game.players.length; i < 4; i++) {
+        for (int i = game.players.length; i < MAX_PLAYERS; i++) {
             informationTable[i].setText("");
         }
 
-        // Player ID: Player Cards and VP
-        for (int x = 0; x < 6; x++) {
-            TextView t = cardsWithVP[x];
-            t.setText(String.valueOf(game.players[playerId].cards[x]));
+        // Player ID: Player Cards
+        for (int x = 0; x < cards.length; x++) {
+            cards[x].setText(String.valueOf(game.players[playerId].cards[x]));
         }
+
+        // Player ID: VP
+        victoryPoints.setText(String.valueOf(game.players[playerId].victoryPoints));
+
         // Player ID: Player Tokens
-        for (int x = 0; x < 5; x++) {
-            TextView t = tokens[x];
-            t.setText(String.valueOf(game.players[playerId].tokens[x]));
+        for (int x = 0; x < tokens.length; x++) {
+            tokens[x].setText(String.valueOf(game.players[playerId].tokens[x]));
         }
         // To show the Table is for which Player ID
         whichPlayer.setText(game.players[playerId].name + " Score");

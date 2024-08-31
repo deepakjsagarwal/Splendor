@@ -4,13 +4,11 @@ import static com.deepakagarwal.splendor.AskNumberOfPlayers.game;
 import static com.deepakagarwal.splendor.utils.Constants.COUNT_TABLE_LEVEL_CARD;
 import static com.deepakagarwal.splendor.utils.Constants.COUNT_TABLE_NOBEL;
 import static com.deepakagarwal.splendor.utils.Constants.LEVELS;
+import static com.deepakagarwal.splendor.utils.Constants.LEVEL_1;
+import static com.deepakagarwal.splendor.utils.Constants.LEVEL_2;
+import static com.deepakagarwal.splendor.utils.Constants.LEVEL_3;
 import static com.deepakagarwal.splendor.utils.Constants.NOBEL;
 import static com.deepakagarwal.splendor.utils.Constants.intToColor;
-
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import com.deepakagarwal.splendor.R;
 
 public class Game {
 
@@ -32,16 +30,16 @@ public class Game {
         levelDeck = new Deck[LEVELS];
 
         for (int i = 0; i < LEVELS; i++) {
-            levelDeck[i] = new Deck(i + 1);
+            levelDeck[i] = new Deck(i);
         }
 
         tableCard = new Card[LEVELS][];
-        tableCard[0] = new Card[COUNT_TABLE_LEVEL_CARD];
-        tableCard[1] = new Card[COUNT_TABLE_LEVEL_CARD];
-        tableCard[2] = new Card[COUNT_TABLE_LEVEL_CARD];
-        tableCard[3] = new Card[COUNT_TABLE_NOBEL];
+        tableCard[LEVEL_1] = new Card[COUNT_TABLE_LEVEL_CARD];
+        tableCard[LEVEL_2] = new Card[COUNT_TABLE_LEVEL_CARD];
+        tableCard[LEVEL_3] = new Card[COUNT_TABLE_LEVEL_CARD];
+        tableCard[NOBEL] = new Card[COUNT_TABLE_NOBEL];
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < LEVELS; i++) {
             for (int j = 0; j < tableCard[i].length; j++) {
                 tableCard[i][j] = this.levelDeck[i].drawCard();
             }
@@ -60,7 +58,7 @@ public class Game {
 
     public boolean isGameOver() {
         for (int x = 0; x < this.players.length; x++) {
-            if (this.players[x].cards[5] >= 15)
+            if (this.players[x].victoryPoints >= 15)
                 return true;
         }
         return false;
@@ -93,7 +91,7 @@ public class Game {
         for (int x = 0; x < game.tableCard[NOBEL].length; x++) {
             if (this.getCurrentPlayer().canPurchaseCard(game.tableCard[NOBEL][x])) {
                 game.getCurrentPlayer().addCardWithScore(game.tableCard[NOBEL][x]);
-                game.tableCard[3][x] = game.levelDeck[NOBEL].back;
+                game.tableCard[NOBEL][x] = game.levelDeck[NOBEL].back;
             }
         }
     }
@@ -101,20 +99,20 @@ public class Game {
     public String getWinner() {
         StringBuilder winnerName = new StringBuilder(this.players[0].name);
         int winner = 0;
-        int maxScore = this.players[0].cards[5];
+        int maxScore = this.players[0].victoryPoints;
 
         for (int x = 1; x < this.players.length; x++) {
-            if (maxScore == this.players[x].cards[5]) {
+            if (maxScore == this.players[x].victoryPoints) {
                 if (this.players[winner].getCountOfCards() > this.players[x].getCountOfCards()) {
                     winner = x;
-                    maxScore = game.players[x].cards[5];
+                    maxScore = game.players[x].victoryPoints;
                     winnerName = new StringBuilder(game.players[x].name);
                 } else if (this.players[winner].getCountOfCards() == this.players[x].getCountOfCards()) {
                     winnerName.append(", ").append(game.players[x].name);
                 }
-            } else if (maxScore < game.players[x].cards[5]) {
+            } else if (maxScore < game.players[x].victoryPoints) {
                 winner = x;
-                maxScore = game.players[x].cards[5];
+                maxScore = game.players[x].victoryPoints;
                 winnerName = new StringBuilder(game.players[x].name);
             }
         }
@@ -131,7 +129,7 @@ public class Game {
         }
 
         int addedTokens = 0;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < colourAdded.length; i++) {
             addedTokens += colourAdded[i];
         }
         if (addedTokens > 3) {
@@ -202,7 +200,7 @@ public class Game {
 
     public boolean allDifferentToken(int[] colour, int numOfDifferentTokens) {
         int count = 0;
-        for (int x = 0; x < 5; x++) {
+        for (int x = 0; x < colour.length; x++) {
             if (colour[x] == 1) count++;
         }
         return count == numOfDifferentTokens;
@@ -210,7 +208,7 @@ public class Game {
 
     public int numOfZeroToken(int[] colour) {
         int count = 0;
-        for (int x = 0; x < 5; x++) {
+        for (int x = 0; x < colour.length; x++) {
             if (colour[x] == 0) count++;
         }
         return count;
@@ -220,7 +218,7 @@ public class Game {
         if (allDifferentToken(colourAdded, 2))
             return false;
         else {
-            for (int x = 0; x < 5; x++) {
+            for (int x = 0; x < colourAdded.length; x++) {
                 if (colourAdded[x] == 2)
                     return colourID[x] >= 4;
             }
@@ -229,7 +227,7 @@ public class Game {
     }
 
     public boolean oneTokenAdded(int[] colourAdded, int[] colourID) {
-        for (int x = 0; x < 5; x++) {
+        for (int x = 0; x < colourAdded.length; x++) {
             if (colourAdded[x] == 1)
                 return colourID[x] < 4;
         }
